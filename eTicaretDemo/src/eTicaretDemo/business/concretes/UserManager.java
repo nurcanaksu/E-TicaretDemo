@@ -24,11 +24,11 @@ public class UserManager implements UserService {
 	public void login(User user) {
 
 		if (user.getEposta().length() == 0) {
-			System.out.println("Lütfen e-posta alanını boş bırakmayınız");
+			System.out.println("LÃ¼tfen e-posta alanÄ±nÄ± boÅŸ bÄ±rakamazsÄ±nÄ±z");
 		} else if(user.getParola().length() ==0) {
-			System.out.println("Parola en az 6 karakterden oluşmalıdır.");
+			System.out.println("Parola alanÄ±nÄ± boÅŸ bÄ±rakamazsÄ±nÄ±z.");
 		}else
-			System.out.println(user.getAd() + " Adlı Kullanıcı sisteme giriş yaptı");
+			System.out.println(user.getAd() + " AdlÃ½ KullanÃ½cÃ½ sisteme giriÃ¾ yaptÃ½");
 	}
 
 	public boolean epostaDogrulama(String message) {
@@ -42,14 +42,14 @@ public class UserManager implements UserService {
 	public void signup(User user) {
 
 		if (user.getAd().length() < 2 && user.getSoyad().length() < 2) {
-			System.out.println("Kullanıcı adı ve soyadı en az iki karakterden oluşmalıdır.");
+			System.out.println("KullanÃ½cÃ½ adÃ½ ve soyadÃ½ en az iki karakterden oluÃ¾malÃ½dÃ½r.");
 		} else if (user.getParola().length() < 6) {
-			System.out.println("Parola en az 6 karakterden oluşmalıdır.");
+			System.out.println("Parola en az 6 karakterden oluÃ¾malÃ½dÃ½r.");
 		} else if (epostaDogrulama(user.getEposta()) == false) {
-			System.out.println("Lütfen e-posta formatında yazınız");
+			System.out.println("LÃ¼tfen e-posta formatÃ½nda yazÃ½nÃ½z");
 		} else
 			this.usedao.signUp(user);
-		    this.dogrulamaService.dogrula("Üyelik tamamlandı doğrulamak için tıklayınız");
+		    this.dogrulamaService.dogrula("Ãœyelik tamamlandÃ½ doÃ°rulamak iÃ§in tÃ½klayÃ½nÃ½z");
 	}
 
 }
